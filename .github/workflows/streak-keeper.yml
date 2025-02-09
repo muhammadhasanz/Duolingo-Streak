@@ -2,7 +2,7 @@ name: Keep my Duolingo streak
 
 on:
   schedule:
-    - cron: '* * * * *'
+    - cron: '36 5 * * *'
   workflow_dispatch:
     inputs: {}
 

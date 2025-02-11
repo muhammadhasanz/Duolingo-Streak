@@ -2,7 +2,7 @@ name: Keep my Duolingo streak
 
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 0 * * *'
   workflow_dispatch:
     inputs: {}
 
@@ -16,16 +16,16 @@ jobs:
         env:
           DUOLINGO_JWT: ${{ secrets.DUOLINGO_JWT }}
           LESSONS: 420.0
-  delete-old-runs:
-    runs-on: ubuntu-latest
-    permissions:
-        actions: write
-        contents: read
-    steps:
-      - name: Delete workflow runs
-        uses: Mattraks/delete-workflow-runs@v2
-        with:
-          token: ${{ github.token }}
-          repository: ${{ github.repository }}
-          keep_minimum_runs: 0
-          retain_days: 0
+  # delete-old-runs:
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #       actions: write
+  #       contents: read
+  #   steps:
+  #     - name: Delete workflow runs
+  #       uses: Mattraks/delete-workflow-runs@v2
+  #       with:
+  #         token: ${{ github.token }}
+  #         repository: ${{ github.repository }}
+  #         keep_minimum_runs: 0
+  #         retain_days: 0
